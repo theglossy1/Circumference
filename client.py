@@ -1,7 +1,10 @@
 # from pyrad.client import Client
 # from pyrad import dictionary
 # from pyrad import packet
+import subprocess
 import sys
+
+from socketIO_client import SocketIO
 
 # def send_coa(json_obj):
 #     radclient = Client(
@@ -15,7 +18,6 @@ import sys
 #   "command": "SELECT * FROM radcheck;"
 # }
 
-from socketIO_client import SocketIO
 
 io = SocketIO((len(sys.argv) > 1 and sys.argv[1]) or '127.0.0.1', 8383)
 
@@ -35,6 +37,7 @@ def on_coa(json):
     coa_command += f"{json['attribute']}={json['value']} | radclient "
     coa_command += f"{json['host']}:{json['port']} coa {json['secret']}"
     print(coa_command)
+    # response = subprocess.Popen(coa_command)
         # stream = os.popen(f"echo 'Acct-Session-ID={sessionid},{update}'  | radclient {COA_HOST}:{COA_PORT} coa {COA_SECRET}")
 
 

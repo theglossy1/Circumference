@@ -51,8 +51,8 @@ def send_coa():
                 'attribute': update[0],
                 'value': update[1]
             }
+            emit('coa', coa_data, room='coa', namespace='/')
             r = flask.jsonify(coa_data)
-            # emit('coa', coa_data, room='coa')
             # emit('send coa', coa_data, room='coa')
     else:
         r = flask.jsonify({'message': 'howdy'})
