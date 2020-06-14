@@ -37,7 +37,10 @@ def on_coa(json):
     coa_command += f"{json['attribute']}={json['value']} | radclient "
     coa_command += f"{json['host']}:{json['port']} coa {json['secret']}"
     print(coa_command)
-    # response = subprocess.Popen(coa_command)
+    response = subprocess.run(coa_command, shell=True, capture_output=True, text=True)
+    print(response.returncode)
+    print(response.stdout)
+    print(response.stderr)
         # stream = os.popen(f"echo 'Acct-Session-ID={sessionid},{update}'  | radclient {COA_HOST}:{COA_PORT} coa {COA_SECRET}")
 
 
