@@ -1,4 +1,3 @@
-# https://python-socketio.readthedocs.io/en/latest/client.html
 import html
 import os
 import string
