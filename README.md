@@ -10,3 +10,5 @@ This software runs on a FreeRADIUS server and initiates a connection to the Sona
 Previously, inbound access was required from a Sonar cloud instance to FreeRADIUS Genie (the predecessor to Circumference) for MySQL (typically tcp/3306) and for CoA (typically udp/3799 or 1700).
 
 How does this work? Once a Socket.IO connection is established, two-way communication can happen over only one TCP session, initiated via standard https from inside your local network. If a change of authorization is required, it is initiated by Sonar, travels over the https tunnel, and is executed by Circucumference using standard CoA.
+
+Check out a [video of this in action](https://jemnetworks.com/Circumference.mp4).
